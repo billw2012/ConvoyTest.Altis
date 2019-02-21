@@ -1,0 +1,21 @@
+Spawning convoy:
+
+Input: Start location, array of vehicles.
+
+disable collision, hide all vehicles
+
+group all crews together in order, keeping transported troops separate.
+
+set group to safe, limited speed
+set lead vehicle speed limit
+
+currLoc = nearest road to Start location
+
+active = []
+inactive = all vehicles
+
+while not all dead or at destination:
+    if inactive is not empty and play is in area:
+        activate all immediately, preverably down the road behind the current tail
+    else if inactive is not empty and there is space at currLoc:
+        activate 1 facing down the road towards the tail
