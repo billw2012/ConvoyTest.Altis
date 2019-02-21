@@ -59,10 +59,10 @@ if (!_Ambush) then
             if(_x in _arm_vehicles) then 
             {
                 diag_log format ["[ConvoyRestart %1] Re-forming armored vehicle %2", _ConvoyID, _x];
-                _pos     = _x getVariable "DEVAS_ConvoyVclPos";
-                _wp     = group (driver _x) addWaypoint [_pos, 0];
-                _wp     setWaypointCompletionRadius 10;
-                _wp     setWaypointType           "MOVE";
+                _pos = _x getVariable "DEVAS_ConvoyVclPos";
+                _wp = group (driver _x) addWaypoint [_pos, 0];
+                _wp setWaypointCompletionRadius 10;
+                _wp setWaypointType "MOVE";
                 // Following lines are for debug. It is to see to which position vehicle will move
                 //vclPosMrkr = createMarkerLocal [format ["getback%1", _x], _pos];
                 //vclPosMrkr setMarkerTextLocal format["getback%1", _x];
@@ -166,15 +166,15 @@ if (!_Ambush) then
         };
     } foreach (_convoyArray select {canmove _x});
 
-    diag_log format ["[ConvoyRestart %1] Waiting 30 sec", _ConvoyID];
-    for "i" from 1 to 30 step 1 do
-    { 
-        if ([_enemySides, _inf_units] call DEVAS_ConvoySearch) exitwith {
-            diag_log format ["[ConvoyRestart %1] Ambush detected while waiting 30 sec", _ConvoyID];
-            _Ambush = true; breakTo "main";
-        };
-        sleep 1;
-    };
+    // diag_log format ["[ConvoyRestart %1] Waiting 30 sec", _ConvoyID];
+    // for "i" from 1 to 30 step 1 do
+    // { 
+    //     if ([_enemySides, _inf_units] call DEVAS_ConvoySearch) exitwith {
+    //         diag_log format ["[ConvoyRestart %1] Ambush detected while waiting 30 sec", _ConvoyID];
+    //         _Ambush = true; breakTo "main";
+    //     };
+    //     sleep 1;
+    // };
 
     diag_log format ["[ConvoyRestart %1] Waiting for all units to get mounted", _ConvoyID];
     _counter = 0;

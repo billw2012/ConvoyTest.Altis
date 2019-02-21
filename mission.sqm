@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=9;
+		nextID=10;
 	};
 	class Camera
 	{
 		pos[]={11010.363,206.35643,12001.89};
-		dir[]={0.075508945,-0.7962029,0.60038406};
-		up[]={0.099354908,0.60501677,0.78999281};
-		aside[]={0.99223071,-8.1886537e-007,-0.12478832};
+		dir[]={0.062813267,-0.7666688,0.63904464};
+		up[]={0.074997351,0.64202458,0.7630105};
+		aside[]={0.99525201,-7.5228309e-007,-0.097823523};
 	};
 };
 binarizationWanted=0;
@@ -4137,8 +4137,8 @@ class Mission
 			{
 				class Attribute0
 				{
-					property="crate_l1_unhide";
-					expression="[_this,_value,'crate_l1_unhide'] call rhs_fnc_setHabarEden";
+					property="Enh_engineOn";
+					expression="_this engineOn _value";
 					class Value
 					{
 						class data
@@ -4147,10 +4147,10 @@ class Mission
 							{
 								type[]=
 								{
-									"SCALAR"
+									"BOOL"
 								};
 							};
-							value=0;
+							value=1;
 						};
 					};
 				};
@@ -4384,8 +4384,8 @@ class Mission
 				};
 				class Attribute13
 				{
-					property="Enh_engineOn";
-					expression="_this engineOn _value";
+					property="crate_l1_unhide";
+					expression="[_this,_value,'crate_l1_unhide'] call rhs_fnc_setHabarEden";
 					class Value
 					{
 						class data
@@ -4394,10 +4394,10 @@ class Mission
 							{
 								type[]=
 								{
-									"BOOL"
+									"SCALAR"
 								};
 							};
-							value=1;
+							value=0;
 						};
 					};
 				};

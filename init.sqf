@@ -6,4 +6,4 @@ PID_fnc_Calculate = compile preprocessFile "PID_calculate.sqf";
 
 [] execVM "convoy\convoyInit.sqf";
 //Execute scripts
-[] execVM "VCOM_Driving\init.sqf";
+//[] execVM "VCOM_Driving\init.sqf";

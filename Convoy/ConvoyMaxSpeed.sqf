@@ -29,27 +29,27 @@ while {alive _vcl && !(_vcl getVariable "DEVAS_ConvoyAmbush")} do
 		if (canMove _x && _enemies isEqualTo []) then {_aliveConvoy pushBack _x;};
 	} forEach _convoyArray;
 	if (count _aliveConvoy < count _convoyArray) exitWith {_vcl setVariable ["DEVAS_ConvoyAmbush",true, false]};
-	if (!isNull _vcl_behind) then {
-		while {_vcl distance _vcl_behind > (_followDist*1.2) && _vcl distance [getmarkerpos(_vcl getVariable "DEVAS_ConvoyCurrentMarker") select 0, getmarkerpos(_vcl getVariable "DEVAS_ConvoyCurrentMarker") select 1, 0] <  _vcl_behind distance [getmarkerpos(_vcl getVariable "DEVAS_ConvoyCurrentMarker") select 0, getmarkerpos(_vcl getVariable "DEVAS_ConvoyCurrentMarker") select 1, 0]} do {	
-			_dir = getDir _vcl;
-			if (_vcl distance _vcl_behind <= (_followDist*2)) then {
-				if (((sin _dir) * (velocity _vcl select 0)) > 3) then {_vcl setVelocity [(velocity _vcl select 0) - (1 * (sin _dir)), (velocity _vcl select 1), velocity _vcl select 2]};
-				if (((cos _dir) * (velocity _vcl select 1)) > 3) then {_vcl setVelocity [(velocity _vcl select 0), (velocity _vcl select 1) - (1 * (cos _dir)), velocity _vcl select 2]};
-			} else {
-				if (((sin _dir) * (velocity _vcl select 0)) > 1) then {_vcl setVelocity [(velocity _vcl select 0) - (2 * (sin _dir)), (velocity _vcl select 1), velocity _vcl select 2]};
-				if (((cos _dir) * (velocity _vcl select 1)) > 1) then {_vcl setVelocity [(velocity _vcl select 0), (velocity _vcl select 1) - (2 * (cos _dir)), velocity _vcl select 2]};
-			};
-			sleep 0.1;
-		};
-	};
-	if (!isNull _vcl_ahead) then {
-		while { (_vcl distance _vcl_ahead < (_followDist*0.8)) || _vcl distance [getmarkerpos(_vcl getVariable "DEVAS_ConvoyCurrentMarker") select 0, getmarkerpos(_vcl getVariable "DEVAS_ConvoyCurrentMarker") select 1, 0] <  _vcl_ahead distance [getmarkerpos(_vcl getVariable "DEVAS_ConvoyCurrentMarker") select 0, getmarkerpos(_vcl getVariable "DEVAS_ConvoyCurrentMarker") select 1, 0]} do {	
-			_dir = getDir _vcl;
-			if (((sin _dir) * (velocity _vcl select 0)) > 1) then {_vcl setVelocity [(velocity _vcl select 0) - (2 * (sin _dir)), (velocity _vcl select 1), velocity _vcl select 2]};
-			if (((cos _dir) * (velocity _vcl select 1)) > 1) then {_vcl setVelocity [(velocity _vcl select 0), (velocity _vcl select 1) - (2 * (cos _dir)), velocity _vcl select 2]};
-			sleep 0.1;
-		};
-	};
+	// if (!isNull _vcl_behind) then {
+	// 	while {_vcl distance _vcl_behind > (_followDist*1.2) && _vcl distance [getmarkerpos(_vcl getVariable "DEVAS_ConvoyCurrentMarker") select 0, getmarkerpos(_vcl getVariable "DEVAS_ConvoyCurrentMarker") select 1, 0] <  _vcl_behind distance [getmarkerpos(_vcl getVariable "DEVAS_ConvoyCurrentMarker") select 0, getmarkerpos(_vcl getVariable "DEVAS_ConvoyCurrentMarker") select 1, 0]} do {	
+	// 		_dir = getDir _vcl;
+	// 		if (_vcl distance _vcl_behind <= (_followDist*2)) then {
+	// 			if (((sin _dir) * (velocity _vcl select 0)) > 3) then {_vcl setVelocity [(velocity _vcl select 0) - (1 * (sin _dir)), (velocity _vcl select 1), velocity _vcl select 2]};
+	// 			if (((cos _dir) * (velocity _vcl select 1)) > 3) then {_vcl setVelocity [(velocity _vcl select 0), (velocity _vcl select 1) - (1 * (cos _dir)), velocity _vcl select 2]};
+	// 		} else {
+	// 			if (((sin _dir) * (velocity _vcl select 0)) > 1) then {_vcl setVelocity [(velocity _vcl select 0) - (2 * (sin _dir)), (velocity _vcl select 1), velocity _vcl select 2]};
+	// 			if (((cos _dir) * (velocity _vcl select 1)) > 1) then {_vcl setVelocity [(velocity _vcl select 0), (velocity _vcl select 1) - (2 * (cos _dir)), velocity _vcl select 2]};
+	// 		};
+	// 		sleep 0.1;
+	// 	};
+	// };
+	// if (!isNull _vcl_ahead) then {
+	// 	while { (_vcl distance _vcl_ahead < (_followDist*0.8)) || _vcl distance [getmarkerpos(_vcl getVariable "DEVAS_ConvoyCurrentMarker") select 0, getmarkerpos(_vcl getVariable "DEVAS_ConvoyCurrentMarker") select 1, 0] <  _vcl_ahead distance [getmarkerpos(_vcl getVariable "DEVAS_ConvoyCurrentMarker") select 0, getmarkerpos(_vcl getVariable "DEVAS_ConvoyCurrentMarker") select 1, 0]} do {	
+	// 		_dir = getDir _vcl;
+	// 		if (((sin _dir) * (velocity _vcl select 0)) > 1) then {_vcl setVelocity [(velocity _vcl select 0) - (2 * (sin _dir)), (velocity _vcl select 1), velocity _vcl select 2]};
+	// 		if (((cos _dir) * (velocity _vcl select 1)) > 1) then {_vcl setVelocity [(velocity _vcl select 0), (velocity _vcl select 1) - (2 * (cos _dir)), velocity _vcl select 2]};
+	// 		sleep 0.1;
+	// 	};
+	// };
 	sleep 0.1;
 };
 _vcl doMove getPos _vcl;
